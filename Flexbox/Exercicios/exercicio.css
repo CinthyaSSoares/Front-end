@@ -1,0 +1,10 @@
+.grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+.box {
+    height: 50px;
+    width: 50px;
+    background-color: green;
+}
