@@ -17,4 +17,4 @@ const concluirTarefa = (evento) => {
     tarefaCompleta.classList.toggle('done');
 }
 
-export default BotaoConclui
+export default BotaoConclui //Sinalizando a exportação no arquivo sinalizado "main.js"

@@ -1,5 +1,5 @@
 
-import BotaoConclui from './Componentes/concluiTarefa.js';
+import BotaoConclui from './Componentes/concluiTarefa.js'; //Nome da função a ser exportada e local 
 import BotaoDeleta from './Componentes/deletaTarefa.js';
 
 const criarTarefa = (evento) => {
