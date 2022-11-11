@@ -1,8 +1,8 @@
 export function valida(input) {
-    const tipoDeInput = input.dataset.tipo;
+    const tipoDeInput = input.dataset.tipo
 
     if(validadores[tipoDeInput]) {
-        validadores[tipoDeInput](input);
+        validadores[tipoDeInput](input)
     }
 
     if(input.validity.valid) {
@@ -160,18 +160,19 @@ function confirmaDigito(soma) {
 }
 
 function recuperarCEP(input) {
-    const cep = input.value.replace(/\D/g, '') //substituir tudo que não for números por nada.
-    const url = 'https://viacep.com.br/ws/${cep}/json'
+    const cep = input.value.replace(/\D/g, '')
+    const url = 'https://viacep.com.br/ws/${cep}/json/'
     const options = {
         method: 'GET',
         mode: 'cors',
+        cache: 'default',
         headers: {
             'content-type': 'application/json;charset=utf-8'
         }
     }
     if(!input.validity.patternMismatch && !input.validity.valueMissing) {
         fetch(url,options).then(
-            response => responde.json()
+            response => response.json()
         ).then(
             data =>{
                 console.log(data)
@@ -184,3 +185,4 @@ function recuperarCEP(input) {
 // 123 456 789 09
 // let soma = (11*1) + (10*2) + (9*3) ... (2*0)
 // let digitoVerificador = 11 - (soma % 11)
+
