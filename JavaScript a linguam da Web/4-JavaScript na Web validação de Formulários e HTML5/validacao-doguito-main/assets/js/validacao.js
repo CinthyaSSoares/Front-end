@@ -43,7 +43,8 @@ const mensagensDeErro = {
     },
     cep: {
         valueMissing: 'O campo de CEP não pode estar vazio.',
-        patternMismatch: 'O CEP digitado não é válido.'
+        patternMismatch: 'O CEP digitado não é válido.',
+        customError: 'Não foi possível localizar esse CEP.'
     },
     logradouro: {
         valueMissing: 'O campo de logradouro não pode estar vazio.'
@@ -59,7 +60,7 @@ const mensagensDeErro = {
 const validadores = {
     dataNascimento:input => validaDataNascimento(input),
     cpf:input => validaCPF(input),
-    cep:input => recuperarCEP(input),
+    cep:input => recuperarCEP(input)
 }
 
 function mostraMensagemDeErro(tipoDeInput, input) {
@@ -156,12 +157,12 @@ function checaDigitoVerificador(cpf, multiplicador) {
 }
 
 function confirmaDigito(soma) {
-    return 11 - (soma % 11)
+    return 11 - (soma % 11);
 }
 
 function recuperarCEP(input) {
-    const cep = input.value.replace(/\D/g, '')
-    const url = 'https://viacep.com.br/ws/${cep}/json/'
+    const cep = input.value.replace(/\D/g, '');
+    const url = `https://viacep.com.br/ws/${cep}/json/`
     const options = {
         method: 'GET',
         mode: 'cors',
@@ -174,31 +175,51 @@ function recuperarCEP(input) {
         fetch(url,options).then(
             response => response.json()
         ).then(
-            data =>{
-                console.log(data)
+            data => {
+                if(data.erro) {
+                    input.setCustomValidity('Não foi possível localizar esse CEP.')
+                    return;
+                }
+                input.setCustomValidity('')
+                preencheCamposComCEP(data)
+                return;
             }
         )
     }
-
 }
+
+function preencheCamposComCEP(data){
+    const logradouro = document.querySelector('[data-tipo="logradoudo"]');
+    const cidade = document.querySelector('[data-tipo="cidade"]');
+    const estado = document.querySelector('[data-tipo="estado"]');
+    
+    logradouro.value = data.logradouro
+    cidade.value = data.localidade
+    estado.value = data.uf
+}
+
+
+
+
+
 //tentando resolver o problema de CORS
 
-const cors = require('cors')
+//const cors = require('cors')
 
-app.use(cors(req, res) {
+//app.use(cors(req, res) {
      
-        res.setHeader('Access-Control-Allow-Origin', '*');
+      //  res.setHeader('Access-Control-Allow-Origin', '*');
 
      // Request methods you wish to allow
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+      //  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
      // Request headers you wish to allow
-        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+       // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
      // Set to true if you need the website to include cookies in the requests sent
      // to the API (e.g. in case you use sessions)
-        res.setHeader('Access-Control-Allow-Credentials', true)
-})
+      //  res.setHeader('Access-Control-Allow-Credentials', true)
+//})
 
 // 123 456 789 09
 // let soma = (11*1) + (10*2) + (9*3) ... (2*0)
