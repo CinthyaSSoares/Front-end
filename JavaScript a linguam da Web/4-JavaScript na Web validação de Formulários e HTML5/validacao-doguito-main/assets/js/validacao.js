@@ -54,11 +54,14 @@ const mensagensDeErro = {
     },
     estado: {
         valueMissing: 'O campo de Estado não pode estar vazio.'
+    },
+    preco: {
+        valueMissing: 'O campo de preço não pode estar vazio.'
     }
 }
 
 const validadores = {
-    dataNascimento:input => validaDataNascimento(input),
+    dataNascimento:input=> validaDataNascimento(input),
     cpf:input => validaCPF(input),
     cep:input => recuperarCEP(input)
 }
@@ -200,9 +203,13 @@ function preencheCamposComCEP(data){
 
 
 
-
-
 //tentando resolver o problema de CORS
+
+//var http_request;
+//http_request = new XMLHTTPRequest();
+//http_request.open("GET");
+//http_request.withCredentials = true;
+//http_request.setRequestHeader("Content-Type", "application/json");
 
 //const cors = require('cors')
 

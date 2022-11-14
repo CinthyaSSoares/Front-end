@@ -1,0 +1,12 @@
+//{
+  //  "rules": [
+   // {
+   //     "resource": {
+   //     "path": "*"
+   //     },
+    //    "allowOrigins": [ "*" ],
+    //    "allowMethods": [ "GET" ],
+    //    "allowCredentials": true
+    
+   // }]
+//}
