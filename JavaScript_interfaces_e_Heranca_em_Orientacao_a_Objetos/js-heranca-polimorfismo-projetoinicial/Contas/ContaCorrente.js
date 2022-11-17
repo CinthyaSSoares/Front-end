@@ -1,4 +1,4 @@
-import { Conta } from "./Conta.js";
+import { Conta } from "./Contas/Conta.js";
 
 //Apenas por que a ContaCorrente herda da classe Conta (extends), pode ser usado atribuição privada _saldo/_agencia
 export class ContaCorrente extends Conta{
