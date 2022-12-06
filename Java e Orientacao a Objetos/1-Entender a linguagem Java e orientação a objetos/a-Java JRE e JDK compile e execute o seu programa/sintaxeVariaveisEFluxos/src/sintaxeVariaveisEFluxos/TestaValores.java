@@ -12,8 +12,7 @@ public class TestaValores {
 		segundo = primeiro;
 		System.out.println(segundo);
 		
-		String valor= "Numero";
-		primeiro = 10;
+		
 
 		String saudacao = "Olá, meu nome é ";
 		String nome = "Cinthya";
