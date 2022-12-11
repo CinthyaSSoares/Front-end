@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ByteBank</name>
+	<name>ByteBankEncapsulado</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1670738331851</id>
+			<id>1670738331879</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
