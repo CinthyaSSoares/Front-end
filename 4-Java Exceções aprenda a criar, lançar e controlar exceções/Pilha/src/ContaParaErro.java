@@ -1,5 +1,7 @@
 public class ContaParaErro {
 
-    void deposita() {}
+    void deposita() throws MinhaException{
+    	
+    }
 
 }
