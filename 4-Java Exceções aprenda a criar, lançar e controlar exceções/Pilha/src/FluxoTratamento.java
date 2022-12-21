@@ -23,7 +23,7 @@ public class FluxoTratamento {
 			System.out.println(i);
 		    int a = i / 0; //erro proposital expect
 		    ContaParaErro c = null; //erro proposital null
-		    c.deposita();
+		    //c.deposita();
 		}
 		System.out.println("Fim do metodo2");
 	}
