@@ -1,0 +1,13 @@
+package br.com.bytebank.teste;
+
+import br.com.bytebank.modelo.ContaCorrente;
+
+public class TesteDoTeste {
+
+		public static void main(String[] args) {
+			
+			Object cc = new ContaCorrente(11,22);
+			
+			
+		}
+}

@@ -1,0 +1,10 @@
+package br.com.bytebank.teste;
+
+public class TesteDoTeste {
+
+		public static void main(String[] args) {
+			
+			Object cc = new Co
+			
+		}
+}

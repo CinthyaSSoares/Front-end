@@ -1,0 +1,8 @@
+package br.com.bytebank.teste;
+
+public class TesteDoTeste {
+
+		public static void main(String[] args) {
+			
+		}
+}
